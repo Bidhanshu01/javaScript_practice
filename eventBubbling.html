@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        .child {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="childContainer">
+            <div class="child">
+                I am a child div. Click me to see event bubbling in action!
+            </div>
+        </section>
+    </div>
+    <script>
+        document.querySelector(".child").addEventListener
+        ("contextmenu", (e) => {
+            e.stopPropagation();
+            alert("Child div clicked!");
+        });
+
+        document.querySelector(".childContainer").addEventListener
+        ("contextmenu", (e) => {
+            e.stopPropagation();
+            alert("Child container clicked!");
+        });
+
+        document.querySelector(".container").addEventListener
+        ("contextmenu", (e) => {
+            e.stopPropagation();
+            alert("container was clicked!");
+        });
+
+        /* NOTES
+            if you right click on the child div, you will see three alerts. This is because the event bubbles up from the child div to its parent elements. If you want to stop the event from bubbling up, you can use event.stopPropagation() in the event listener for the child div. 
+            SO WE HAVE TO USE E PROPOGATION TO STOP THE EVENT FROM BUBBLING UP  :  before : ("contextmenu", () => {
+                alert("Child container clicked!");
+
+            after : ("contextmenu", (e) => {
+                e.stopPropagation();
+                alert("Child container clicked!");
+        */
+
+        // INTERVAL we can set an interval to execute a function at regular intervals
+        setInterval(() => {
+            console.log("Hello World");
+        }, 1000); // 1000 milliseconds = 1 second
+
+        setTimeout(() => {
+            console.log("Hello World");
+        }, 5000); // 5000 milliseconds = 5 seconds
+
+
+        setInterval(() => {
+            document.querySelector(".childContainer").style.backgroundColor = "red";
+        }, 3000); // 3000 milliseconds = 3 seconds
+
+        setTimeout(() => {
+            document.querySelector(".childContainer").style.backgroundColor = "red";
+        }, 5000); // 3000 milliseconds = 3 seconds
+
+
+    </script>
+    
+</body>
+</html>
