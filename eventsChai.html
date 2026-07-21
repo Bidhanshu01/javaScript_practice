@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Chai aur code </h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // method 1
+    // setTimeout(function(){
+    //     console.log("Bidhanshu");     // print name after 2 sec 
+    // },2000)
+
+    // OR by function
+    const sayBidhanshu = function(){
+        console.log("Bidhanshu");
+    }
+
+    setTimeout(sayBidhanshu,2000);
+
+
+    const changeTest =function(){
+        document.querySelector('h1').innerHTML= "best JS series"    // change the h1 chai aur code to best js series
+
+    }
+
+    const changeMe=setTimeout(changeTest,4000);
+
+    document.querySelector('#stop').
+    addEventListener('click',function(){
+        clearTimeout(changeMe)           // to stop timeout when we click stop button
+        console.log("STOPPED")
+    })
+
+
+    
+    
+</script>
+</html>
